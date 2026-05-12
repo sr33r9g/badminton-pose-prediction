@@ -1,29 +1,34 @@
 # Badminton Pose Prediction 🎯🏸
 
-A real-time badminton pose prediction system using **Computer Vision**, **MediaPipe**, and **Machine Learning**.  
-This project detects badminton poses from live webcam/video input using a lightweight feature-based approach.
+A real-time badminton pose prediction system built using **Computer Vision**, **MediaPipe**, and **Machine Learning**.  
+This project identifies different badminton movements from live webcam input using a simple and lightweight feature extraction approach.
+
+The main goal of this project is to recognize common badminton poses efficiently without relying on complex angle calculations.
 
 ---
 
 ## 🚀 Features
 
-- Real-time pose prediction
-- Uses **MediaPipe Pose Detection**
-- Lightweight feature extraction
-- Decision Tree based classification
-- Supports live webcam prediction
-- Efficient prediction smoothing using `deque`
+- Real-time badminton pose prediction
+- Uses **MediaPipe** for human pose detection
+- Lightweight and efficient feature extraction
+- Decision Tree based machine learning model
+- Live webcam prediction using OpenCV
+- Prediction smoothing using `deque`
+- Fast and beginner-friendly implementation
 
 ---
 
-## 🧠 Poses Detected
+## 🧠 Poses Predicted
 
-The model can predict the following badminton poses:
+The model is trained to recognize the following badminton poses:
 
-- Backhand
-- Forehand Defense
-- Smash
-- Stance
+| Pose | Description |
+|---|---|
+| **Backhand** | Detects backhand hitting posture |
+| **Forehand Defense** | Detects defensive forehand stance |
+| **Smash** | Detects powerful overhead smash movement |
+| **Stance** | Detects ready position before movement |
 
 ---
 
@@ -40,7 +45,7 @@ The model can predict the following badminton poses:
 
 ## 📌 Feature Extraction
 
-Instead of using multiple body angles and complex calculations, the final model uses only **3 important features**:
+Instead of using multiple body angles and complex calculations, the final model uses only **3 important features** for prediction:
 
 ```python
 right_hand_up
@@ -50,13 +55,13 @@ lean_right
 
 ### Feature Description
 
-| Feature | Description |
+| Feature | Purpose |
 |---|---|
-| `right_hand_up` | Detects whether the right hand is raised |
-| `right_cross_body` | Detects whether the right hand crosses the body center |
+| `right_hand_up` | Checks whether the right hand is raised |
+| `right_cross_body` | Checks whether the right hand crosses the body |
 | `lean_right` | Detects body leaning toward the right side |
 
-This simplified approach improved efficiency and reduced unnecessary complexity.
+This simplified approach helped make the model faster, cleaner, and easier to train while still achieving good pose prediction performance.
 
 ---
 
@@ -67,20 +72,20 @@ This simplified approach improved efficiency and reduced unnecessary complexity.
 - Converted videos into image frames
 
 ### 2️⃣ Pose Detection
-- Used MediaPipe to detect body landmarks
+- Used MediaPipe Pose to detect body landmarks
 
 ### 3️⃣ Feature Generation
-- Extracted custom pose features:
-  - `right_hand_up`
-  - `right_cross_body`
-  - `lean_right`
+Extracted custom pose features:
+- `right_hand_up`
+- `right_cross_body`
+- `lean_right`
 
 ### 4️⃣ Model Training
-- Trained a Decision Tree model using the generated dataset
+- Built and trained a Decision Tree model using the generated dataset
 
-### 5️⃣ Real-Time Prediction
-- Integrated webcam prediction using OpenCV
-- Used `deque` for stable predictions
+### 5️⃣ Live Prediction
+- Integrated the trained model with webcam input
+- Used `deque` to stabilize predictions and reduce flickering
 
 ---
 
@@ -98,7 +103,7 @@ Move into the project directory:
 cd badminton-pose-prediction
 ```
 
-Install dependencies:
+Install the required libraries:
 
 ```bash
 pip install -r requirements.txt
@@ -106,9 +111,9 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run the Project
+## ▶️ Running the Project
 
-### Step 1: Build the Model
+### Step 1: Build and Train the Model
 
 Run:
 
@@ -116,7 +121,7 @@ Run:
 badminton_model_building.ipynb
 ```
 
-### Step 2: Start Live Prediction
+### Step 2: Start Live Pose Prediction
 
 Run:
 
@@ -129,7 +134,8 @@ badminton_live.ipynb
 ## 📸 Future Improvements
 
 - Add more badminton poses
-- Improve prediction accuracy
+- Improve model accuracy
+- Train with a larger dataset
 - Deploy as a web application
 - Mobile application support
 
@@ -139,7 +145,7 @@ badminton_live.ipynb
 
 Contributions are welcome!
 
-Fork the repository and submit a pull request.
+Feel free to fork the repository and submit a pull request.
 
 ---
 
@@ -151,4 +157,4 @@ This project is licensed under the MIT License.
 
 ## ⭐ Support
 
-If you like this project, give it a ⭐ on GitHub!
+If you found this project helpful, consider giving it a ⭐ on GitHub!
